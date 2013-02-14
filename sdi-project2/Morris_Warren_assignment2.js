@@ -8,15 +8,30 @@
 //
 */
 
-var sayIt = function (logWhat) { console.log( logWhat ); };
 
 var guitarModel = "Ibanez",
 	stringNumbers = [1,2,3,4,5,6],
 	standardTuning = ["E","A","D","G","B","e"],
 	dTuning = ["D","A","D","G","B","e"]
 	isTuned = false,
-	untunedCount = stringNumbers.length	
+	untunedCount = stringNumbers.length,
+	guitarInHand = false
+
 ;
 
+var sayIt = function (logWhat) { 
+	console.log( logWhat ); 
+};
 
-//sayIt("test")
+var guitarInHandCheck = function () {
+	if (guitarInHand === false){
+		guitarInHand = true; 
+		sayIt("I picked up the " + guitarModel + ". It is time to check the tuning.");
+	}else{
+		sayIt("Guitar is already in my hands. Now it is time to check the tuning.");  
+	}
+}
+
+
+guitarInHandCheck()
+
