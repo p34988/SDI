@@ -32,6 +32,13 @@ var guitarInHandCheck = function () {
 	}
 }
 
+var tuneGuitar = function ( stringCount ) {
+	if (stringCount < 1) {
+sayIt("The guitar is already tuned, just play it!");
+	} else {
+
+	}
+}
 
 guitarInHandCheck()
 
