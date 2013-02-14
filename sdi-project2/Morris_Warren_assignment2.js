@@ -32,13 +32,17 @@ var guitarInHandCheck = function () {
 	}
 }
 
-var tuneGuitar = function ( stringCount ) {
-	if (stringCount < 1) {
-sayIt("The guitar is already tuned, just play it!");
-	} else {
+var tuneGuitar = function () {
+	if (untunedCount < 1) {
+		sayIt("The guitar is already tuned, just play it!");
+	}else{
+//tune guitar loop here
 
+		sayIt("String");
+	
 	}
 }
 
-guitarInHandCheck()
-
+guitarInHandCheck();
+tuneGuitar();
+sayIt("Passed it");
