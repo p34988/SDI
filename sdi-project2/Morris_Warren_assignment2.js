@@ -1,9 +1,11 @@
 //alert("JavaScript works!");
 
 /*
+//
 // Warren Morris
 // SDI 1302
 // Project 2 
+//
 */
 
 var sayIt = function (logWhat) { console.log( logWhat ); };
