@@ -5,8 +5,18 @@
 // Project 3
 // More, not so fun stuff...
 
-//True Random is an illusion, but this should work for this purpose
+
+
+var  me = {
+	"name": "Warren",
+	"age": 28,
+	"gender": "Male",
+	"height": "71 inches"
+};
+
 var startBool = false 
+
+//True Random is an illusion, but this should work for this purpose
 var rndPick = Math.floor(Math.random()*10)
 var pickArrItem = function (num) {
 
@@ -77,3 +87,10 @@ console.log (pickArrItem(null));
 
 loops();
 
+
+console.log("My name is " + me.name + ". I am a " + me.age + " year old " + me.gender + ", and I am " + me.height + " tall." );
+
+me.age = 29;
+console.log("Scratch that, I am " + me.age + " years old!");
+
+console.log(me);
