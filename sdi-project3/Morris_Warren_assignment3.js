@@ -24,6 +24,14 @@ var pickArrItem = function (num) {
 	if (num===null) {
 		return sentArr;
 	} else {
+		
+// Nested Conditional
+		if (num > 4) {
+		console.log("Random Number was High.");
+		} else {
+		console.log("Random Number was Low.");
+		};
+	
 		return sentArr[num];
 	}
 };
