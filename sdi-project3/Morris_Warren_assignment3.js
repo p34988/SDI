@@ -6,47 +6,49 @@
 // More, not so fun stuff...
 
 //True Random is an illusion, but this should work for this purpose
+var startBool = false 
 var rndPick = Math.floor(Math.random()*10)
-var whatHappened = function (num) {
+var pickArrItem = function (num) {
 
-if (num === 0){
-	console.log(num);
-} else if (num === 1){
-	console.log(num);
-} else if (num === 2){
-	console.log(num);
-} else if (num === 3){
-	console.log(num);
-} else if (num === 4){
-	console.log(num);
-} else if (num === 5){
-	console.log(num);
-} else if (num === 6){
-	console.log(num);
-} else if (num === 7){
-	console.log(num);
-} else if (num === 8){
-	console.log(num);
-} else if (num === 9){
-	console.log(num);
-} else {
-	console.log("Else");
+	var sentArr = [ "Item 0",
+					"Item 1",
+					"Item 2",
+					"Item 3",
+					"Item 4",
+					"Item 5",
+					"Item 6",
+					"Item 7",
+					"Item 8",
+					"Item 9"
+	];
+	if (num===null) {
+		return sentArr;
+	} else {
+		return sentArr[num];
 	}
 };
 
+var hasStarted = function (bool) {
+	if (bool === false) {
+		bool = true;
+		return bool
+};
 
+};
 var startStory = function () {
-
-console.log("This is the story about Bob and his life in his eyes.")
-console.log("Bob wakes up every day, wishing he hadn't woken up at all.")
-console.log("It didn't always used to be like that. In fact, Bob used to be very content with his life.")
-console.log("")
-console.log(" ")
-
+	console.log("I have spent more time on this project than i spent at work in a week.");
+	console.log("In an effort to show that I'm able to learn what is going on here, this is going to just be the requirements to the best of my ability, minus the story.");
+	startBool = hasStarted(startBool);
+	console.log("Has started: " + startBool)
 };
 
 
 
 
-//console.log(rndPick);
-whatHappened(rndPick);
+// Calling a function
+console.log("Has started: " + startBool)
+startStory();
+
+//Getting an array item
+console.log("Randomly Chosen Array Item: " + pickArrItem(rndPick));
+console.log (pickArrItem(null));
