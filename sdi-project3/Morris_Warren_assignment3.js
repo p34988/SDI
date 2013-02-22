@@ -11,7 +11,8 @@ var  me = {
 	"name": "Warren",
 	"age": 28,
 	"gender": "Male",
-	"height": "71 inches"
+	"height": "71 inches",
+	"hobbies": ["video games","listening to music"," computers"]
 };
 
 var startBool = false 
@@ -89,8 +90,12 @@ loops();
 
 
 console.log("My name is " + me.name + ". I am a " + me.age + " year old " + me.gender + ", and I am " + me.height + " tall." );
-
+//Not really effective use of a while loop.
+while (me.age === 28){
+console.log("In While Loop");
 me.age = 29;
+};
+console.log("Out of loop");
 console.log("Scratch that, I am " + me.age + " years old!");
-
+console.log("My hobbies are: " + me.hobbies);
 console.log(me);
