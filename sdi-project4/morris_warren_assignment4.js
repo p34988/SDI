@@ -37,11 +37,11 @@ var theLibrary = function () {
 			}
 		} else if (num.length == 15) {
 			if (num.charAt(0) == '+' && num.charAt(2) == '-' && num.charAt(6) == '-' && num.charAt(10) == '-' ) {
-			
-					result = "correct";
-				} else {
-					result = "wrong";
-				}
+		
+				result = "correct";
+			} else {
+				result = "wrong";
+			}
 		} else {
 		result = "wrong";
 		}
@@ -68,8 +68,20 @@ var theLibrary = function () {
 		var num = this;
 		var dPoint = num.length-p;
 	
-		var endNum = [num.slice(0, dPoint), ".", num.slice(dPoint)].join("");
+		var endNum = ""
+		var addNum = p-num.length;
 		
+		var addWhat = "";
+		if (p < num.length){
+		
+			endNum = [num.slice(0, dPoint), ".", num.slice(dPoint)].join("");
+		} else if (p == num.length) {
+			endNum = [num.slice(0, dPoint), "0.", num.slice(dPoint)].join("");
+			
+		} else if (p > num.length) {
+			
+			endNum = "Error: Decimal place is greater than the numbers length."			
+		}
 		return endNum;
 	
 	};
@@ -84,12 +96,19 @@ var theLibrary = function () {
 	
 	};
 
+	// 11. Total of Array
+	String.prototype.arraySum = function (a) {
+	var amount = 0;
+	
+	
+	};
 };
 
 var newLib = new theLibrary(); // Call library
 
 console.log("4657.324".makeNum()); // String to number
-console.log("1234567890".decimal(2)); // Place decimal
+console.log("1234567890".decimal(2)); // Place decimal: Good
+console.log("1234567890".decimal(11)); // Place decimal: Bad
 console.log("warren r morris".ProperCase()); // Title-case
 console.log("11-222-3333".checkNum()); //Check bad Number
 console.log("111-222-3333".checkNum()); //Check good Number
