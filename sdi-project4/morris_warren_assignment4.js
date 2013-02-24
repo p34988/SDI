@@ -75,6 +75,18 @@ var theLibrary = function () {
 	
 	};
 	
+	// 5. Replace separator
+	String.prototype.changeSeparator = function (find, fix) {
+		var src = this.split(find);
+		var temp = [];
+		for (i=0; i < src.length; i++){
+		temp.push(src[i]);
+		
+		}
+	return temp.join(fix);
+	
+	};
+	
 	// 6. Add decimal to a number
 	String.prototype.decimal = function (p) {
 		var num = this;
@@ -148,18 +160,26 @@ var theLibrary = function () {
 
 var newLib = new theLibrary(); // Call library
 
+//
 console.log("4657.324".makeNum()); // String to number
 console.log("1234567890".decimal(2)); // Place decimal: Good
 console.log("1234567890".decimal(11)); // Place decimal: Bad
+//
 console.log("warren r morris".ProperCase()); // Title-case
+//
 console.log("11-222-3333".checkNum()); //Check bad Number
 console.log("111-222-3333".checkNum()); //Check good Number
 console.log("(111)222-3333".checkNum()); //Check good Number
 console.log("0-111-222-3333".checkNum()); //Check good Number
 console.log("+0-111-222-3333".checkNum()); //Check good Number
+//
 console.log("".arraySum([50, 43, "NaN" ,13])); //Total of array
+//
 console.log("http://test.com".isURL()); // Good HTTP
 console.log("https://test.com".isURL()); // Good HTTPS
 console.log("wwwtestcom".isURL()); // Bad URL
-console.log("".compairDates("2009/31/12","2013/15/02")); 
-console.log("".compairDates("2013/15/02","2009/31/12"));
+//
+console.log("".compairDates("2009/31/12","2013/15/02")); // Compair dates
+console.log("".compairDates("2013/15/02","2009/31/12")); // Compair dates
+//
+console.log("a,b,c".changeSeparator(",","/")); // Change separator
