@@ -98,8 +98,19 @@ var theLibrary = function () {
 
 	// 11. Total of Array
 	String.prototype.arraySum = function (a) {
-	var amount = 0;
-	
+		//var a = this;
+		var amount = 0;
+		for (i=0;i<a.length;i++) {
+			amount = 1*amount;
+			if (isNaN(a[i])){
+			
+			} else {
+			console.log("item " + i + ": " + a[i]);
+				amount += 1*a[i]; 		
+			
+			}
+		};
+		return amount;
 	
 	};
 };
@@ -115,3 +126,4 @@ console.log("111-222-3333".checkNum()); //Check good Number
 console.log("(111)222-3333".checkNum()); //Check good Number
 console.log("0-111-222-3333".checkNum()); //Check good Number
 console.log("+0-111-222-3333".checkNum()); //Check good Number
+console.log("".arraySum([50, 43, "NaN" ,13])); //Total of array
