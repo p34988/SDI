@@ -18,7 +18,7 @@ var theLibrary = function () {
 
 };
 
-// Set string to Proper Case(titlecase)
+// 4. Set string to Proper Case(titlecase)
 String.prototype.ProperCase = function () {
 	var toSplit = this.split(" ");
 	var afterCased = [];
@@ -31,5 +31,16 @@ String.prototype.ProperCase = function () {
 
 };
 
+// 6. Add decimal to a number
+String.prototype.decimal = function (p) {
+	var num = this;
+	var dPoint = num.length-p;
 
-console.log("warren morris is awesome".ProperCase());
+	var endNum = [num.slice(0, dPoint), ".", num.slice(dPoint)].join("");
+	
+	return endNum;
+
+};
+
+
+
