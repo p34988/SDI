@@ -17,33 +17,33 @@ var theLibrary = function () {
 		if (num.length == 12) {
 			if (num.charAt(3) == '-' && num.charAt(7) == '-') {
 		
-				result = "correct";
+				result = "Good Number";
 			} else {
-				result = "wrong";
+				result = "Bad Number";
 			}
 		} else if (num.length == 13) {
 			if (num.charAt(0) == '(' && num.charAt(4) == ')' && num.charAt(8) == '-') {
 		
-				result = "correct";
+				result = "Good Number";
 			} else {
-				result = "wrong";
+				result = "Bad Number";
 			}
 		} else if (num.length == 14) {
 			if (num.charAt(1) == '-' && num.charAt(5) == '-' && num.charAt(9) == '-') {
 		
-				result = "correct";
+				result = "Good Number";
 			} else {
-				result = "wrong";
+				result = "Bad Number";
 			}
 		} else if (num.length == 15) {
 			if (num.charAt(0) == '+' && num.charAt(2) == '-' && num.charAt(6) == '-' && num.charAt(10) == '-' ) {
 		
-				result = "correct";
+				result = "Good Number";
 			} else {
-				result = "wrong";
+				result = "Bad Number";
 			}
 		} else {
-		result = "wrong";
+		result = "Bad Number";
 		}
 		
 	
@@ -98,6 +98,25 @@ var theLibrary = function () {
 	
 	};
 	
+	// 8. Find days between dates
+	String.prototype.compairDates = function (date1, date2) {
+		var dateA = new Date(date1);
+		var dateB = new Date(date2);
+		var days = 1000*60*60*24;
+		var diff = "";
+		
+		// I didn't want to deal with error handeling so I made it always
+		// subtract the smallest from the biggest. This way it doesn't matter which date goes in which spot.
+		if (dateA > dateB) {
+		diff = dateA - dateB;
+		} else if (dateA < dateB) {
+		diff = dateB - dateA;
+		};
+		
+	
+	return Math.floor(diff/days) + " days.";
+	};
+	
 	// 9. string to number
 	String.prototype.makeNum = function () {
 		var num = this;
@@ -142,3 +161,5 @@ console.log("".arraySum([50, 43, "NaN" ,13])); //Total of array
 console.log("http://test.com".isURL()); // Good HTTP
 console.log("https://test.com".isURL()); // Good HTTPS
 console.log("wwwtestcom".isURL()); // Bad URL
+console.log("".compairDates("2009/31/12","2013/15/02")); 
+console.log("".compairDates("2013/15/02","2009/31/12"));
