@@ -50,6 +50,18 @@ var theLibrary = function () {
 		return result;
 	};
 
+	// 3. Check URL
+	String.prototype.isURL = function () {
+		var s1 = this.substring(0, 5);
+		var s2 = this.substring(0, 6);
+		if (s1 == 'http:' || s2 == 'https:') {
+			return true;
+		} else {
+			return false;
+		};
+	
+	};
+
 	// 4. Set string to Proper Case(titlecase)
 	String.prototype.ProperCase = function () {
 		var toSplit = this.split(" ");
@@ -127,3 +139,6 @@ console.log("(111)222-3333".checkNum()); //Check good Number
 console.log("0-111-222-3333".checkNum()); //Check good Number
 console.log("+0-111-222-3333".checkNum()); //Check good Number
 console.log("".arraySum([50, 43, "NaN" ,13])); //Total of array
+console.log("http://test.com".isURL()); // Good HTTP
+console.log("https://test.com".isURL()); // Good HTTPS
+console.log("wwwtestcom".isURL()); // Bad URL
