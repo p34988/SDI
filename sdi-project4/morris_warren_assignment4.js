@@ -10,42 +10,60 @@ var theLibrary = function () {
 	
 	
     // 1. Check phone number format
-	String.prototype.checkNum = function () {
-		var result = "";
+	String.prototype.checkNum = function () { //updated to include isNaN
+		var result = "Bad Number";
 		var num = this;
+		switch(num.length){
+			case 12: //111-222-3333
+				var a = num.charAt(0) + num.charAt(1) + num.charAt(2);
+				var b = num.charAt(4) + num.charAt(5) + num.charAt(6);
+				var c = num.charAt(8) + num.charAt(9) + num.charAt(10) + num.charAt(11); 
+			
+				if (num.charAt(3) == '-' && num.charAt(7) == '-' && isNaN(a) == false && isNaN(b) == false && isNaN(c) == false) {
+		
+					result = "Good Number";
+				} else {
+					result = "Bad Number";
+				}
+				break;
+			case 13: //(111)222-3333
+				var a = num.charAt(1) + num.charAt(2) + num.charAt(3);
+				var b = num.charAt(5) + num.charAt(6) + num.charAt(7);
+				var c = num.charAt(9) + num.charAt(10) + num.charAt(11) + num.charAt(12); 
+				if (num.charAt(0) == '(' && num.charAt(4) == ')' && num.charAt(8) == '-' && isNaN(a) == false && isNaN(b) == false && isNaN(c) == false) {
+		
+					result = "Good Number";
+				} else {
+					result = "Bad Number";
+				} 
+				break;
+			case 14: //0-111-222-3333
+				var a = num.charAt(0) + num.charAt(2) + num.charAt(3)+ num.charAt(4);
+				var b = num.charAt(6) + num.charAt(7) + num.charAt(8);
+				var c = num.charAt(10) + num.charAt(11) + num.charAt(12) + num.charAt(13); 
+				if (num.charAt(1) == '-' && num.charAt(5) == '-' && num.charAt(9) == '-' && isNaN(a) == false && isNaN(b) == false && isNaN(c) == false) {
+		
+					result = "Good Number";
+				} else {
+					result = "Bad Number";
+				}
+				break;
+			case 15: //+0-111-222-3333
+				var a = num.charAt(1) + num.charAt(3) + num.charAt(4) + num.charAt(5);
+				var b = num.charAt(7) + num.charAt(8) + num.charAt(9);
+				var c = num.charAt(11) + num.charAt(12) + num.charAt(13) + num.charAt(14);
+				if (num.charAt(0) == '+' && num.charAt(2) == '-' && num.charAt(6) == '-' && num.charAt(10) == '-' && isNaN(a) == false && isNaN(b) == false && isNaN(c) == false ) {
+			
+					result = "Good Number";
+				} else {
+					result = "Bad Number";
+				}
+				break;
+			default:
+			
+		
+		};
 
-		if (num.length == 12) {
-			if (num.charAt(3) == '-' && num.charAt(7) == '-') {
-		
-				result = "Good Number";
-			} else {
-				result = "Bad Number";
-			}
-		} else if (num.length == 13) {
-			if (num.charAt(0) == '(' && num.charAt(4) == ')' && num.charAt(8) == '-') {
-		
-				result = "Good Number";
-			} else {
-				result = "Bad Number";
-			}
-		} else if (num.length == 14) {
-			if (num.charAt(1) == '-' && num.charAt(5) == '-' && num.charAt(9) == '-') {
-		
-				result = "Good Number";
-			} else {
-				result = "Bad Number";
-			}
-		} else if (num.length == 15) {
-			if (num.charAt(0) == '+' && num.charAt(2) == '-' && num.charAt(6) == '-' && num.charAt(10) == '-' ) {
-		
-				result = "Good Number";
-			} else {
-				result = "Bad Number";
-			}
-		} else {
-		result = "Bad Number";
-		}
-		
 	
 		return result;
 	};
@@ -54,7 +72,7 @@ var theLibrary = function () {
 	String.prototype.isURL = function () {
 		var s1 = this.substring(0, 5);
 		var s2 = this.substring(0, 6);
-		if (s1 == 'http:' || s2 == 'https:') {
+		if (s1 == 'http:' || s2 == 'https:') { //Extra credit "Boolean logic"
 			return true;
 		} else {
 			return false;
@@ -67,7 +85,7 @@ var theLibrary = function () {
 		var toSplit = this.split(" ");
 		var afterCased = [];
 		
-		for (var i=0; i < toSplit.length; i++) {
+		for (var i=0; i < toSplit.length; i++) {  // Extra credit "loop"
 			var theChars = toSplit[i].charAt(0).toUpperCase();
 			afterCased.push(theChars + toSplit[i].slice(1));
 		}
@@ -85,7 +103,7 @@ var theLibrary = function () {
 		}
 	return temp.join(fix);
 	
-	};
+	}; // extra credit "arguments"
 	
 	// 6. Add decimal to a number
 	String.prototype.decimal = function (p) {
@@ -142,26 +160,28 @@ var theLibrary = function () {
 	// 11. Total of Array
 	String.prototype.arraySum = function (a) {
 		//var a = this;
-		var amount = 0;
+		var amount = 0; // extra credit "local variable/scope"
 		for (i=0;i<a.length;i++) {
 			amount = 1*amount;
 			if (isNaN(a[i])){
 			
 			} else {
-			console.log("item " + i + ": " + a[i]);
+			
 				amount += 1*a[i]; 		
 			
 			}
 		};
-		return amount;
+		return amount; // extra credit "returns"
 	
 	};
 };
 
 var newLib = new theLibrary(); // Call library
-
+var testString = "2234.345"; // Test variable to check that it worked.
 //
 console.log("4657.324".makeNum()); // String to number
+console.log(testString.makeNum()); // String to number using a variable to see that it worked.
+//
 console.log("1234567890".decimal(2)); // Place decimal: Good
 console.log("1234567890".decimal(11)); // Place decimal: Bad
 //
@@ -183,3 +203,4 @@ console.log("".compairDates("2009/31/12","2013/15/02")); // Compair dates
 console.log("".compairDates("2013/15/02","2009/31/12")); // Compair dates
 //
 console.log("a,b,c".changeSeparator(",","/")); // Change separator
+//
