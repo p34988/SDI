@@ -68,6 +68,19 @@ var theLibrary = function () {
 		return result;
 	};
 
+	// 2. Check Email
+	String.prototype.isEmail = function () {
+		var atSym = this.indexOf("@");
+		var pSym = this.lastIndexOf("."); // some emails have more than one period, so i want the last
+		var result = null;
+		if (atSym != -1 && pSym != -1 && this.charAt(0) != "@" && this.charAt(this.length-1) != "." && this.charAt(this.length) != ".") {
+			result = "Good Email Format";
+		} else {
+			result =  "Bad Email Format";
+		};
+		return result;
+	};
+	
 	// 3. Check URL
 	String.prototype.isURL = function () {
 		var s1 = this.substring(0, 5);
@@ -217,4 +230,7 @@ console.log("".compairDates("2013/15/02","2009/31/12")); // Compair dates
 //
 console.log("a,b,c".changeSeparator(",","/")); // Change separator
 //
-console.log("".higherLow([8,9,4,6,2,3],3));
+console.log("".higherLow([8,9,4,6,2,3],3)); // get the lowest number higher than given number
+//
+console.log("test@test.com".isEmail()); // Good Email
+console.log("testtest.com".isEmail()); // Bad email
