@@ -157,6 +157,19 @@ var theLibrary = function () {
 	
 	};
 
+	// 10. smallest number higher than given number
+	String.prototype.higherLow = function (a, n) {
+		var low = null;
+		a.sort();
+		for (i = 0; i < a.length; i++) {
+			if (a[i] > n) {
+				return a[i];
+			
+			};
+		}
+	
+	};
+
 	// 11. Total of Array
 	String.prototype.arraySum = function (a) {
 		//var a = this;
@@ -204,3 +217,4 @@ console.log("".compairDates("2013/15/02","2009/31/12")); // Compair dates
 //
 console.log("a,b,c".changeSeparator(",","/")); // Change separator
 //
+console.log("".higherLow([8,9,4,6,2,3],3));
