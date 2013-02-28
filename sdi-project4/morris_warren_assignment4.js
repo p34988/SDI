@@ -141,6 +141,18 @@ var theLibrary = function () {
 	
 	};
 	
+	// 7. fuzzy match
+	String.prototype.fuzzyMatch = function (c,p) {
+	
+		var m = c*(p/100), num = this;
+			if (num >= c-m && num <= c+m) {
+				return true;
+			} else {
+				return false;		
+		
+		};
+	};
+	
 	// 8. Find days between dates
 	String.prototype.compairDates = function (date1, date2) {
 		var dateA = new Date(date1);
@@ -200,6 +212,8 @@ var theLibrary = function () {
 		return amount; // extra credit "returns"
 	
 	};
+	
+	// 12. Sort Array by key
 };
 
 var newLib = new theLibrary(); // Call library
@@ -234,3 +248,6 @@ console.log("".higherLow([8,9,4,6,2,3],3)); // get the lowest number higher than
 //
 console.log("test@test.com".isEmail()); // Good Email
 console.log("testtest.com".isEmail()); // Bad email
+
+console.log("50".fuzzyMatch(100,50));
+console.log("60".fuzzyMatch(100,20));
