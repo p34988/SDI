@@ -141,7 +141,7 @@ var theLibrary = function () {
 	
 	};
 	
-	// 7. fuzzy match
+	// 7. fuzzy match (have no idea what i'm doing here, but from what i researched, this looks right)
 	String.prototype.fuzzyMatch = function (c,p) {
 	
 		var m = c*(p/100), num = this;
@@ -214,6 +214,14 @@ var theLibrary = function () {
 	};
 	
 	// 12. Sort Array by key
+	String.prototype.keyedArray = function (array) {
+		var k = this;
+		
+		return array.sort( function(a, b) {	return a[k] - b[k];	});
+
+	
+	
+	};
 };
 
 var newLib = new theLibrary(); // Call library
@@ -249,5 +257,7 @@ console.log("".higherLow([8,9,4,6,2,3],3)); // get the lowest number higher than
 console.log("test@test.com".isEmail()); // Good Email
 console.log("testtest.com".isEmail()); // Bad email
 
-console.log("50".fuzzyMatch(100,50));
-console.log("60".fuzzyMatch(100,20));
+console.log("50".fuzzyMatch(100,50)); // fuzzy match
+console.log("60".fuzzyMatch(100,20)); // fuzzy match 
+
+console.log("a".keyedArray([{a:2},{a:4},{a:1},{a:3}])); // sort array by key
