@@ -256,8 +256,8 @@ console.log("".higherLow([8,9,4,6,2,3],3)); // get the lowest number higher than
 //
 console.log("test@test.com".isEmail()); // Good Email
 console.log("testtest.com".isEmail()); // Bad email
-
+//
 console.log("50".fuzzyMatch(100,50)); // fuzzy match
 console.log("60".fuzzyMatch(100,20)); // fuzzy match 
-
+//
 console.log("a".keyedArray([{a:2},{a:4},{a:1},{a:3}])); // sort array by key
